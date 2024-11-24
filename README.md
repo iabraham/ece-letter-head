@@ -33,4 +33,4 @@ See the file `template.pdf` in the repository.
 
 I am not too sure which font is used for the letter head provided on the departmental website. 
 
-[ ] Have fonts be more similar/aligned with the Word Template. 
+- [ ] Have fonts be more similar/aligned with the Word Template. 
