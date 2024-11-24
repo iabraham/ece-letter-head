@@ -1,0 +1,150 @@
+% https://tex.stackexchange.com/questions/59932/reproducing-an-official-letterhead
+
+%% Colors
+% https://www.creativeservices.illinois.edu/brand/logos-and-colors.html
+% blue:   CMYK 100/90/10/77
+% orange: CMYK 01/83/85/0
+\usepackage[rgb]{xcolor}
+\definecolor{UIblue}{RGB}{19,41,75}
+\definecolor{UIorange}{RGB}{232,74,39}
+
+% set page geometry
+\usepackage[top=1.75in,left=1.0in,bottom=0.33in,right=1.0in]{geometry}
+\usepackage{graphicx}
+
+% logo
+\providecommand\logofile{Illinois-Wordmark-Horizontal-Full-Color-CMYK.pdf}
+
+\providecommand\lllinioisI{Illinois-I.pdf}
+
+% remove coloring from URLs
+\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\urlstyle{same}
+
+% to place things in exact places
+%\usepackage[absolute,showboxes]{textpos}
+\usepackage[absolute]{textpos}
+
+% for conditionals
+\usepackage{ifthen}
+
+% load Montserrat font -- this is a close alternative to Gotham
+\usepackage[defaultfam,light,semibold,oldstyle]{montserrat} %% Option 'defaultfam'
+%% only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+% set linespacing and paragraph spacing
+\linespread{1.10}
+\setlength{\parskip}{1em}
+
+% use microtype to extend spacing
+\usepackage{microtype}
+
+% Remove paragraph indentation
+\parindent0pt
+\raggedright%
+
+% change page style to include header/footer
+\pagestyle{empty}
+
+% add stuff to the doc
+\AtBeginDocument{%
+    % Top block with logo
+    \begin{textblock*}{\textwidth}(1.0in,0.75in)
+      \includegraphics[height=0.5in]{\logofile}
+    \end{textblock*}
+
+    % Inset department address
+    \begin{textblock*}{4.0in} (3.5in,0.45in)
+      \begin{flushright}
+        {%
+	\color{UIblue}
+	\fontsize{10}{12}
+	%\fontseries{b}
+	\textbf
+	\fromcollege\\%
+	}
+	\vspace{2mm}
+	{%
+        \color{UIblue}
+\footnotesize
+	        \fromdept\\%
+        \fromdeptaddress%
+        }
+      \end{flushright}
+    \end{textblock*}
+
+    % main text
+    %\newgeometry{top=3.0in,left=0.75in,bottom=1.2in,right=1.0in}
+    \vspace*{-1in}
+  }
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancypagestyle{default}{
+\fancyfoot{}
+\fancyfoot[L]{%
+	% footer
+	% specify the top right corner location of the footer
+	\begin{textblock*}{\textwidth}[1.0,0.0](7.5in,9.9375in)
+		{%
+			\begin{flushleft}
+				\color{UIorange}
+				\fontseries{mb}\selectfont
+				\small
+				UNIVERSITY OF ILLINOIS URBANA--CHAMPAIGN
+			\end{flushleft}
+		}
+		\vspace{-6mm}
+		{%
+			\begin{flushleft}
+				\color{UIblue}
+				\fontsize{10}{12}\selectfont
+				\fromtel\ \textbullet\ \fromweb%
+			\end{flushleft}
+		}
+	\end{textblock*}
+}
+}
+
+\fancypagestyle{last-page}{
+	\fancyfoot[L]{%
+		% footer
+		% specify the top right corner location of the footer
+		\begin{textblock*}{\textwidth}[1.0,0.0](7.5in,9.9375in)
+			{%
+				\begin{flushleft}
+					\color{UIorange}
+					\fontseries{mb}\selectfont
+					\small
+					UNIVERSITY OF ILLINOIS URBANA--CHAMPAIGN
+				\end{flushleft}
+			}
+			\vspace{-6mm}
+			{%
+				\begin{flushleft}
+					\color{UIblue}
+					\fontsize{10}{12}\selectfont
+					\fromtel\ \textbullet\ \fromweb%
+				\end{flushleft}
+			}
+		\end{textblock*}
+		\begin{textblock*}{0.2\textwidth}[0.0,1.0](7.275in,10.35in)		
+							\includegraphics[height=0.3in]{Illinois-I}
+		\end{textblock*}
+	}
+}
+
+\pagestyle{default}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+% add closing to end of the document, if sig is available
+\AtEndDocument{%
+	\thispagestyle{last-page}
+    \par\vspace{2ex}
+    \fromname%
+}
