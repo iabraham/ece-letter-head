@@ -1,6 +1,6 @@
 ### What is this?
 
-This is a modifcation of the [Illinois CS Letterhead in Latex](https://github.com/davis68/letterhead) by Neal Davis[https://github.com/davis68) which itself was a port of [a project](https://github.com/lukeolson/illinois-letterhead) by
+This is a modifcation of the [Illinois CS Letterhead in Latex](https://github.com/davis68/letterhead) by [Neal Davis](https://github.com/davis68) which itself was a port of [a project](https://github.com/lukeolson/illinois-letterhead) by
 [Luke Olson](https://github.com/lukeolson)).
 
 I have modified it to match the ECE Letterhead format found the [ECE Departmental Page](https://ece.illinois.edu/communications). 
@@ -28,3 +28,9 @@ To compose a letter, use `template.tex`, which includes the logo and font style 
 ### What does it look like?
 
 See the file `template.pdf` in the repository. 
+
+### What it lacks? 
+
+I am not too sure which font is used for the letter head provided on the departmental website. 
+
+[ ] Have fonts be more similar/aligned with the Word Template. 
